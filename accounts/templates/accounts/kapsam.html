@@ -1,0 +1,22 @@
+{%  extends 'accounts/main.html' %}
+{% block content %}
+{% load static %}
+
+<div class="col-lg-6 col-lg offset-3">
+    <form method="get">
+        {% for field in filter_form %}
+        <div class="form-group">
+            <div class="col-lg-4" style="padding: 0">
+                {{ field }}
+            </div>
+        </div>
+        {% endfor %}
+        <div class="form-group">
+            <input type="submit" class="btn btn-info" value="İlerle">
+        </div>
+        
+
+    </form>
+</div>
+
+{% endblock %}

@@ -1,0 +1,77 @@
+{%  extends 'accounts/main.html' %}
+
+{% block content %}
+
+	<br>
+
+<div class="row">
+	<div class="col-md">
+		<div class="card card-body">
+			<h5></h5>
+			<hr>
+			<a class="btn btn-outline-info  btn-sm btn-block" href="">Update Company</a>
+			<a class="btn btn-outline-danger  btn-sm btn-block" href="">Delete Company</a>
+			<a class="btn btn-outline-info  btn-sm btn-block" href="">Add Company</a>
+			
+
+		</div>
+	</div>
+
+</div>
+
+
+<br>
+<div class="row">
+	<div class="col">
+		<div class="card card-body">
+			<form method="get">
+
+		    <button class="btn btn-primary" type="submit">Search</button>
+		  </form>
+		</div>
+	</div>
+	
+</div>
+<br>
+
+<div class="row">
+	<div class="col-md">
+		<div class="card card-body">
+			<table class="table table-sm">
+				<tr>
+					<th>Firma Adı</th>
+					<th>Belgelendirme Denetim Tarihi</th>
+					<th>1. Ara Denetim Tarihi</th>
+					<th>2. Ara Denetim Tarihi</th>
+					<th>Yeniden Belgelendirme Tarihi</th>
+					<th>Askı tarihi</th>
+					<th>İptal Tarihi</th>
+					<th>İlk Belgelendirme Tarihi</th>
+					<th>Sertifika Tarihi</th>
+					<th>Belge Bitiş Tarihi</th>
+				</tr>
+
+				
+					{% for f in firmas %}
+				<tr>
+					
+					<td>{{f.firma_adi}}</td>
+					<td>{{f.belgelendirme_denetim_tarihi}}</td>
+					<td>{{f.adt1}}</td>
+					<td>{{f.adt2}}</td>
+					<td>{{f.Yeniden_Belgelendirme_Denetim_Tarihi}}</td>
+					<td>{{f.Aski_Tarihi}}</td>
+					<td>{{f.Iptal_Tarihi}}</td>
+					<td>{{f.ilk_belgelendirme_tarihi}}</td>
+					<td>{{f.sertifika_tarihi}}</td>
+					<td>{{f.belge_bitiş_tarihi}}</td>
+
+				</tr>
+
+				{% endfor %}
+			</table>
+		</div>
+	</div>
+</div>
+
+{% endblock %}

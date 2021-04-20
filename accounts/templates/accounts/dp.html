@@ -1,0 +1,66 @@
+{%  extends 'accounts/main.html' %}
+{% block content %}
+{% load static %}
+
+<style>
+    @media print {
+        body,
+        tr {
+            width: 50cm;
+            height: auto;
+            margin: 2mm 450mm 30mm 45mm;
+            font-size: 25px;
+            font-style: normal;
+            font-family: Arial, Helvetica, sans-serif;
+            
+        }
+        h3 {
+            padding: 25px 450px 75px;
+        }
+    }
+</style>
+
+
+
+<div class="row">
+    <div class="col-md">
+        <table class="table-responsive">
+            <form action="" method="POST">
+                {% csrf_token %}
+            </form>
+            <h3>DENETİM PROGRAMI</h3>
+            {% for d in dp %}
+            <table table border="1">
+                <tr>
+                    <td style="width: 290px;">Firma Adı</td>
+                    <td colspan="3">{{d.Company_Name}}</td>
+                </tr>
+                <tr>
+                    <td>Adres</td>
+                    <td colspan="3">{{d.Address}}</td>
+                </tr>
+                <tr>
+                
+                  
+                    <td style="width: 290px;">Standart</td>
+                    <td style="width: 2 0px;">{{d.Standard}}</td>
+                    <td>Diğer Normatif Dokümanlar</td>  
+                    {% for results in Denetci_list_9001 %}
+                    
+                        <td style="width: 290px;">{{results.Personel_Adı}}</td>
+                    
+                {% endfor %}
+                </tr>
+                <tr>
+                    <td> Kapsam </td>
+                    <td> {{d.BELGELENDİRME_KAPSAMINIZ }}</td>
+                </tr>
+            </table>
+        </table>
+        {% endfor %}
+
+    </div>
+</div>
+
+
+{% endblock %}

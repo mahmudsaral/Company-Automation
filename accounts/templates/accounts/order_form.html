@@ -1,0 +1,19 @@
+{%  extends 'accounts/main.html' %}
+{% block content %}
+
+<div class="row">
+	<div class="col-md">
+		<div class="card card-body">
+			<table class="table-responsive">
+				<form action="" method="POST">
+					<input type="submit" name="Submit">
+					{% csrf_token %}
+					{{form}}
+				</form>
+			</table>
+		</div>
+	</div>
+</div>
+
+
+{% endblock %}

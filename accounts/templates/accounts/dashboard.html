@@ -1,0 +1,105 @@
+{%  extends 'accounts/main.html' %}
+
+{% block content %}
+<style>
+	.th, td {
+            white-space: nowrap; 
+            width: 100px; 
+            overflow: hidden;
+            text-overflow: ellipsis;
+            border: 1px solid #000000;
+            }
+
+            th, td :hover {
+            overflow: visible;
+            }
+</style>
+
+<div class="row">
+	<div class="col-md">
+		<div class="card card-body">
+			<h5></h5>
+			<hr>
+			<a class="btn btn-outline-info  btn-sm btn-block" href="{%url 'create_order' %}">Add Company</a>
+		</div>
+	</div>
+
+</div>
+ 
+
+<br>
+<div class="row">
+	<div class="col">
+		</div>
+	</div>
+	
+</div>
+<br>
+
+<div class="row">
+	<div class="col-md">
+		<div class="card w-75">
+			<table class="table table-dark" >
+			
+				<tr>
+					<th>Cert No</th>
+                    <th>Company Name</th>
+                    <th>Standard</th>
+                    <th>CA Date</th>
+                    <th>SA1</th>
+                    <th>SA2</th>
+                    <th>ReReg</th>
+                    <th>Suspension Date</th>
+                    <th>Withdrawal Date</th>
+                    <th>Adres</th>
+                    <th>Yetkili_Kisi</th>
+                    <th>Scope</th>
+                    <th>Phone</th>
+                    <th>Fax</th>
+                    <th>Email</th>
+                    <th>Ea</th>
+                    <th>nace</th>
+                    <th>Initial Cert Date</th>
+                    <th>Cert Date</th>
+                    <th>Belge Bitiş Tarihi</th>
+				</tr>
+
+				
+					{% for f in firmas %}
+				<tr>
+					
+					<td>{{f.CertNo}}</td>
+                    <td>{{f.Company_Name}}</td>
+                    <td>{{f.Standard}}</td>
+                    <td>{{f.CA_Date}}</td>
+                    <td>{{f.SA1}}</td>
+                    <td>{{f.SA2}}</td>
+                    <td>{{f.ReReg}}</td>
+                    <td>{{f.Suspension_Date}}</td>
+					<td>{{i.Withdrawal_Date}}</td>
+					<td>{{f.Address}}</td>
+                    <td>{{f.Yetkili_Kisi}}</td>
+                    <td>{{f.Scope}}</td>
+                    <td>{{f.Phone}}</td>
+                    <td>{{f.Fax}}</td>
+                    <td>{{f.email}}</td>
+                    <td>{{f.ea}}</td>
+                    <td>{{f.nace}}</td>
+                    <td>{{f.Initial_Cert_Date}}</td>
+                    <td>{{f.Cert_Date}}</td>
+                    <td>{{f.belge_bitiş_tarihi}}</td>
+					<td><a class="btn btn-sm btn-info" href="{% url 'update_order' f.id %}">Update</a></td>
+					<td><a class="btn btn-sm btn-danger"href="{% url 'delete_order' f.id %}">Delete</a></td>
+
+				</tr>
+
+				{% endfor %}
+			</table>
+		
+	
+	</div>
+
+</div>
+
+
+{% endblock %}

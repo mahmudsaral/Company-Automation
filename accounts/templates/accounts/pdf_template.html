@@ -1,0 +1,285 @@
+<!DOCTYPE html>
+<html>
+
+<head>
+    <meta charset="cp1252">
+    <title>PDF</title>
+    
+    <style>
+        #table {
+            padding: 10ex;
+        }
+
+        th,
+        td {
+            padding: 3px;
+        }
+
+        th {
+            background-color: black;
+            color: white;
+            
+        }
+
+        @page {
+            size: a4 portrait;
+            @frame content_frame {
+
+                left: 50pt;
+                width: 512pt;
+                top: 10pt;
+                height: 830pt;
+            }
+            
+
+        }
+    </style>
+</head>
+
+<body>
+    {% for o in order %}
+    <h3>BELGENLENDİRME KOMİTESİ TUTANAGI</h3>
+        <table table border="1" cellpadding="10">
+            <tr>
+                <td style="width:100px">Kuruluş Adı</td>
+                <td colspan="3">{{o.Company_Name}}</td>
+            </tr>
+    {% endfor %}
+    {% for o in order %}
+    
+        <table table border="1" cellpadding="10">
+            <tr>
+                <td>Standart(lar)</td>
+                <td>{{o.Standard}}</td>
+                <td colspan="2">Tetkik Türü</td>
+                <td> </td>
+            </tr>
+            <tr>
+                <td>Tetkik Tarih(ler)i</td>
+                <td> </td>
+                <td colspan="2">İş Emri No</td>
+                <td> </td>
+            </tr>
+            <tr>
+                <td>Baş Tetkikçi</td>
+                <td> </td>   
+                <td colspan="2">Ekip</td>
+                <td> </td>
+            </tr>
+
+        </table>
+        {% endfor %}
+    {% for o in order %}
+   
+    <table table border="1" cellpadding="10">
+        
+        
+        <tr>
+            <td colspan="4">Tetkik, kapsam ve hedefleri içeriyor mu?</td>
+
+            <td>UD</td>
+
+
+        </tr>
+        <tr>
+            <td colspan="4">Kapsam ifadesi doğru ve uygun mu?</td>
+            <td>UD</td>
+
+        </tr>
+        <tr>
+            <td colspan="4">Teklif ve sözleşmede yer alan kapsam ile firma tarafından talep edilen kapsam aynı mı?</td>
+            <td>UD</td>
+
+        </tr>
+        <tr>
+            <td colspan="4">Teklif ve sözleşmede yer alan firma çalışan sayısı ile firma bilgi formunda tanımlanan çalışan sayısı aynı mı?</td>
+            <td>UD</td>
+
+        </tr>
+        <tr>
+            <td colspan="4">Hariç tutulan madde varsa, gerekçe için yeterli kanıt var mı?</td>
+            <td>UD</td>
+
+        </tr>
+        <tr>
+            <td colspan="4">Eğer I. Aşama gerçekleştirilmişse tavsiye kararı II. Aşama tetkiki için hazır şeklinde mi?</td>
+            <td>UD</td>
+        </tr>
+        <tr>
+            <td colspan="4">Verilen IAF, NACE, SK ve KAT, D ve MD kodunun müşterinin belgelendirme kapsamını tam karşılandığına emin olun.</td>
+            <td>UD</td>
+
+        </tr>
+        <tr>
+            <td colspan="4">Tetkik ekibi üyelerinden birinde IAF, NACE, SK ve KAT, D ve MD Kodu mevcut mu?</td>
+            <td>UD</td>
+
+        </tr>
+        <tr>
+            <td colspan="4">Tetkik süresi teklif ve sözleşme ile aynı mıdır? Denetim adam/gün = 8 saat (saha ulaşım ve yemek saati</td>
+            <td>UD</td>
+
+        </tr>
+        <tr>
+            <td colspan="4">Gerçekleştirilen gün sayısı ile sözleşmedeki gün sayısı aynı mı?</td>
+            <td>UD</td>
+
+        </tr>
+        <tr>
+            <td colspan="4">Tetkik planı süreç odaklı mı ya da ilgili standardın tüm maddelerini kapsıyor mu? 1 hafta öncesinden firmaya iletildi mi? </td>
+            <td>UD</td>
+
+        </tr>
+        <tr>
+            <td colspan="4">Gerçekleştirilen gün sayısı ile sözleşmedeki gün sayısı aynı mı?</td>
+            <td>UD</td>
+
+        </tr>
+        <tr>
+            <td colspan="4">Bütün lokasyonlar tetkik planlaması yapılmış mı? (Çoklu Saha)</td>
+            <td>UD</td>
+
+        </tr>
+        <tr>
+            <td colspan="4">Bütün lokasyonlar tetkik edilmiş mi? (Çoklu Saha)</td>
+            <td>UD</td>
+
+        </tr>
+        <tr>
+            <td colspan="4">Bütün lokasyonların tetkik raporunda adresleri ve prosesler açıkça belirtilmiş mi?</td>
+            <td>UD</td>
+
+        </tr>
+        <tr>
+            <td colspan="4">Tetkikçi notları, proses tretkik sayfaları bulguları desteklemek için yeterli kanıt içeriyor mu?</td>
+            <td>UD</td>
+
+        </tr>
+        <tr>
+            <td colspan="4">Tetkik bulgularının tümü minör veya majör olarak sınıflandırıldığına dair uygunsuzlukların tamamını gözden geçir</td>
+            <td>UD</td>
+
+        </tr>
+        <tr>
+            <td colspan="4">Uygunsuzlukların kapatılmasını destekleyen objektif kanıtlar dosyada mevcut mu? Kök sebep analizi gerçekleştirilmiş mi?</td>
+            <td>UD</td>
+
+        </tr>
+        <tr>
+            <td colspan="4">Önerilerin uygunsuzluk olmadığına veya danışmanlık bağlamında spesifik olmadığını doğrulamak için gözden geçirildi mi?</td>
+            <td>UD</td>
+
+        </tr>
+        <tr>
+            <td colspan="4">Bir önceki denetimdeki uygunsuzluklar yerinde doğrulanmış, denetim planı ve raporunda belirtilmiş mi?</td>
+            <td>UD</td>
+
+        </tr>
+        <tr>
+            <td colspan="4">Tetkik raporu/notları, örnek kontrolleri kapsıyor mu? Proses ve yönetim sistemlerinin etkinliklerini</td>
+            <td>UD</td>
+
+        </tr>
+        <tr>
+            <td colspan="4">Planlanmış tüm gereksinimler /prosesler denetlenmiş midir?</td>
+            <td width="5%">UD</td>
+
+        </tr>
+        <tr>
+            <td colspan="4">Sertifika geçerlilik tarihi yenileme denetimi için uygun tarihli midir?</td>
+            <td>UD</td>
+
+        </tr>
+        <tr>
+            <td colspan="4">Tetkik dosyası KIWA dokümantasyonunun güncel versiyonlarını içeriyor mu?</td>
+            <td>UD</td>
+
+        </tr>
+        <tr>
+            <td colspan="4" align="center">Belgelendirme Komitesi Karar Gerekçesi </td>
+        </tr>
+        <tr>
+            <td colspan="4">{{o.CertNo}} NUMARALI ISO BELGESİNİN GÖZETİM DENETİMİNİN YAPILAMAMASI SEBEBİ İLE ASKIYA ALINMASINA KARAR VERİLMİŞTİR.</td>
+        </tr>
+        <tr>
+            <td> Karar </td>
+            <td colspan="3" align="center"> Mevcut Belge Askıya Alınmalıdır </td>
+        </tr>
+        <tr>
+            <td colspan="4" align="center">Belgelendirme Komitesi Üyeleri </td>
+        </tr>
+        <tr>
+            <td>Gözden Geçiren (İsim/İmza)</td>
+            <td> </td>
+            <td> </td>
+            <td> </td>
+        </tr>
+        <tr>
+            <td>Onay (Sektör Uzmanı) (İsim/İmza)</td>
+            <td> </td>
+            <td> </td>
+            <td> </td>
+        </tr>
+        <tr>
+            <td>Tarih</td>
+            <td>{{o.Suspension_Date}}</td>
+            <td> </td>
+            <td> </td>
+        </tr>
+        
+    </table>
+    <br><br>
+    <table>
+        <tr>
+            <td>Firma Adı</td> 
+            <td colspan="3">{{o.Company_Name}}</td> 
+         </tr>
+         <tr>
+            <td>Firma Adresi</td> 
+            <td colspan="3">{{o.Address}}</td> 
+         </tr>
+         <tr>
+            <td>Tel</td> 
+            <td colspan="3">{{o.Phone}}</td> 
+         </tr>
+         <tr>
+            <td>Fax</td> 
+            <td colspan="3">{{o.Fax}}</td> 
+         </tr>
+         <tr>
+            <td>E-Mail</td> 
+            <td colspan="3">{{o.email}}</td> 
+         </tr>
+         <tr>
+            <td>Konu</td> 
+            <td colspan="3">Sertifikanızın askıya alınması hakkında.</td> 
+         </tr>
+         <tr>
+            <td>Belge No</td> 
+            <td colspan="3">{{o.CertNo}}</td> 
+         </tr>
+         <tr>
+            <td>Yayın Tarihi</td> 
+            <td colspan="3">{{o.Cert_Date}}</td> 
+         </tr>
+         <tr>
+            <td>Sayın</td> 
+            <td colspan="3">{{o.Yetkili_Kisi}}</td> 
+         </tr>
+         <tr>
+            <td colspan="4">Firmanızın {{o.Standard}} ISO belgesi gözetim denetiminin yapılamaması sebebiyle askıya alınmıştır. Bu durum mevcut sertifikanız geçici olarak geçersiz hale gelmiştir. Askıya alınma sebebinin ortadan kaldırılması ile 180 gün içinde ara denetime girerek sertifikanızı yeniden aktif hale getirme imkanınız bulunmaktadır.TÜRKAK Akreditasyon Kurumu, belgenizin askıya alınması hakkında bilgilendirilecektir.PR.009 Şikayet ve İtiraz Prosedürümüz uyarınca bu karara itiraz etme hakkınız vardır.Bu ara dönemde Lütfen sertifika ve logo kullanımını durdurunuz 180 gün içinde askıya alma sebebi ortadan kalkmaz ise sertifikanız için geri çekme süreci başlayacaktır. Bu durumda yeniden belge almak için sözleşme yenilenmeli ve tüm denetim süreci baştan yürütülecektir.</td>
+             
+         </tr>
+         
+     </table>
+
+    
+
+    {% endfor %}
+
+
+
+
+</body>
+
+</html>

@@ -1,0 +1,530 @@
+{%  extends 'accounts/main.html' %}
+{% block content %}
+{% load static %}
+
+<style>
+    @media print {
+
+        .noprint { 
+                  visibility: hidden; 
+               } 
+
+        body,
+        tr {
+            width: 50cm;
+            height: auto;
+            margin: 2mm 450mm 30mm 45mm;
+            font-size: 25px;
+            font-style: normal;
+            font-family: Arial, Helvetica, sans-serif;
+
+        }
+
+        h3 {
+            padding: 25px 450px 75px;
+        }
+    }
+
+    table {
+
+        width: 65%;
+        top: 90pt;
+
+    }
+
+    td {
+        padding: 3px;
+
+
+    }
+
+    .rotate {
+        white-space: spacE;
+        -webkit-transform: rotate(-90deg);
+        -webkit-transform-origin: 10px;
+        -moz-transform: rotate(-90deg);
+        -moz-transform-origin: 10px;
+        -ms-transform: rotate(-90deg);
+        -ms-transform-origin: 10px;
+        -o-transform: rotate(-90deg);
+        -o-transform-origin: 10px;
+        transform: rotate(-90deg);
+        transform-origin: 10px;
+        width: 120px;
+        position: relative;
+
+
+    }
+</style>
+
+<div class="row">
+    <div class="col-md">
+        <table class="table-responsive">
+            <form action="" method="POST">
+                {% csrf_token %}
+            </form>
+            {% for f in FBF %}
+            <h3>FİRMA BİLGİ FORMU</h3>
+            <td><a class="noprint" href="{% url '9001' f.id %}">ISO 9001-</a></td>
+            <td><a class="noprint" href="{% url 'dp' f.id %}">ISO 13485-</a></td>
+            <td><a class="noprint" href="{% url 'dp' f.id %}">ISO 14001-</a></td>
+            <td><a class="noprint" href="{% url 'dp' f.id %}">ISO 22000-</a></td>
+            <td><a class="noprint" href="{% url 'dp' f.id %}">ISO 27001-</a></td>
+            <td><a class="noprint" href="{% url 'dp' f.id %}">ISO 45001-</a></td>
+            <td><a class="noprint" href="{% url 'dp' f.id %}">ISO 50001-</a></td>
+            <td><a class="noprint" href="{% url 'dp' f.id %}">ISO 18001</a></td>
+
+
+            <table table border="1">
+
+                <td>Sizlere bir teklif sunabilmemiz için firmanız hakkında bilgilere ihtiyacımız vardır. Bu kapsamda Firma Bilgi Formunu eksiksiz ve doğru olarak doldurup tarafımıza ulaştırmanız önemlidir. Bu bilgiler ışığında firmanız için özel olarak teklif hazırlanarak size ulaştırılacaktır. Firmanız ile ilgili tüm bilgiler gizli tutulacaktır.</td>
+
+            </table>
+
+            <table table border="1">
+
+
+
+                <tr>
+                    <td>Firma Adı</td>
+                    <td> {{f.Company_Name}}</td>
+                </tr>
+                <tr>
+                    <td colspan="3">Lütfen Ticaret Sicil Gazetenizi Ekleyiniz</td>
+                </tr>
+                <td>Adres</td>
+                <td>{{f.Address}}</td>
+                <table border="1">
+                    <tr>
+                        <td>İlgili Kişi</td>
+                        <td style="width: 35%"> {{f.ilgili_kişi}}</td>
+                        <td>Ünvanı</td>
+                        <td style="width: 35%">{{f.Ünvanı}}</td>
+                    </tr>
+
+
+                    <tr>
+                        <td>Telefon</td>
+                        <td style="width: 35%"> {{f.Telefon}}</td>
+                        <td>Faks</td>
+                        <td style="width: 35%"> {{f.Faks}}</td>
+                    </tr>
+                    <tr>
+                        <td>E-Mail</td>
+                        <td style="width: 35%"> {{f.Email}}</td>
+                        <td>Web</td>
+                        <td style="width: 35%"> {{f.Web}}</td>
+                    </tr>
+                    <tr>
+                        <td>Vergi Dairesi</td>
+                        <td> {{f.Vergi_Dairesi}}</td>
+                        <td>Vergi No</td>
+                        <td> {{f.Vergi_No}}</td>
+                    </tr>
+                </table>
+
+
+                <table table border="1" cellpadding="10">
+
+                    <tr>
+                        <td rowspan="2">TALEP ETTİĞİNİZ STANDART(LAR)</td>
+                        <td style="width:5%"><input type="checkbox" name="myTextEditBox" value="checked" /> </td>
+                        <td style="width:15%">ISO 9001</td>
+                        <td style="width:5%"><input type="checkbox" name="myTextEditBox" value="checked" /> </td>
+                        <td style="width:15%">ISO 22000</td>
+                        <td colspan="2">DİĞER</td>
+                    </tr>
+
+                    <tr>
+                        <td style="width:5%"><input type="checkbox" name="myTextEditBox" value="checked" /> </td>
+                        <td style="width:15%">ISO 14001</td>
+                        <td style="width:5%"><input type="checkbox" name="myTextEditBox" value="checked" /> </td>
+                        <td style="width:15%">ISO 45001</td>
+                        <td style="width:5%"><input type="checkbox" name="myTextEditBox" value="checked" /> </td>
+                        <td style="width:15%"> </td>
+                    </tr>
+
+                    <tr>
+                        <td rowspan="2">GÖZETİM DENETİM SIKLIĞI</td>
+                        <td style="width: 5%"><input type="checkbox" name="myTextEditBox" value="checked" /> </td>
+                        <td style="width: 15%">ISO 13485</td>
+                        <td style="width: 5%"><input type="checkbox" name="myTextEditBox" value="checked" /> </td>
+                        <td style="width: 15%">ISO 50001</td>
+                        <td style="width: 5%"><input type="checkbox" name="myTextEditBox" value="checked" /> </td>
+                        <td style="width: 15%"> </td>
+                    </tr>
+                    <table border="1" cellpading="10">
+                        <tr>
+                            <td rowspan="3">6 AY</td>
+                            <td style="width: 5%"><input type="checkbox" name="myTextEditBox" value="checked" /> </td>
+                            <td style="width: 10%">9 AY </td>
+                            <td style="width: 5%"><input type="checkbox" name="myTextEditBox" value="checked" /> </td>
+                            <td style="width: 10%">12 AY </td>
+                            <td style="width: 5%"><input type="checkbox" name="myTextEditBox" value="checked" /> </td>
+                            <td style="width: 5%"><input type="checkbox" name="myTextEditBox" value="checked" /> </td>
+                            <td style="width: 15%">ISO 27001</td>
+                            <td style="width: 5%"><input type="checkbox" name="myTextEditBox" value="checked" /> </td>
+                            <td style="width: 15%">OHSAS 18001</td>
+                            <td style="width: 5%"><input type="checkbox" name="myTextEditBox" value="checked" /> </td>
+                            <td style="width: 15%"> </td>
+                        </tr>
+
+                    </table>
+                    <table border="1">
+                        <tr>
+                            <td>ŞUBENİZ, ŞANTİYENİZ, PROJE SAHANIZ, DEPONUZ vb. MERKEZ DIŞINDA TESİSİNİZ VAR MIDIR?</td>
+                        </tr>
+                    </table>
+                    <table border="1">
+                        <tr>
+                            <td style="width: 15%">EVET</td>
+                            <td style="width: 5%"><input type="checkbox" name="myTextEditBox" value="checked" /> </td>
+                            <td style="width: 15%">HAYIR</td>
+                            <td style="width: 5%"><input type="checkbox" name="myTextEditBox" value="checked" /> </td>
+                            <td rowspan="3">Cevabınız EVET ise 3. Sayfada yer alan tabloyu doldurunuz.</td>
+                        </tr>
+                    </table>
+                    <table border="1">
+                        <tr>
+                            <td>Lütfen firmanızın ve taşeronlarınızın SGK bildirgelerini ekleyiniz</td>
+                        </tr>
+                    </table>
+                    <table border="1">
+                        <tr>
+                            <td style="width: 25%">Yönetici Sayısı</td>
+                            <td style="width: 10%"> {{f.Yönetici_Sayısı}}</td>
+                            <td style="width: 25%">Mühendis, Tekniker, Teknisyen Sayısı</td>
+                            <td style="width: 10%"></td>
+                        </tr>
+
+                        <tr>
+                            <td style="width: 25%">Kritik İşçi Sayısı</td>
+                            <td style="width: 10%">{{f.Kritik_İşçi_Sayısı}} </td>
+                            <td style="width: 25%">Taşeronların Toplam Çalışan Sayısı</td>
+                            <td style="width: 10%"> </td>
+                        </tr>
+
+                        <tr>
+                            <td style="width: 25%">Tekrarlı İşler Yürüten Personel Sayısı</td>
+                            <td style="width: 10%">{{f.Tekrarlı_İşler_Yürüten_Personel_Sayısı}} </td>
+                            <td style="width: 25%">Yarı Zamanlı Çalışan Sayısı (YZÇS)</td>
+                            <td style="width: 10%"> </td>
+                        </tr>
+                        <tr>
+                            <td style="width: 25%">Geçici ve/veya Vasıfsız Personel Sayısı</td>
+                            <td style="width: 10%"> </td>
+                            <td style="width: 25%">YZÇS Günlük Çalışma Süreleri / Saat</td>
+                            <td style="width: 10%"> </td>
+                        </tr>
+                        <tr>
+                            <td colspan="3">TOPLAM ÇALIŞAN SAYISI</td>
+                            <td style="width: 10%"> {{f.Toplam_Çalışan_Sayısı}} </td>
+                        </tr>
+                        <tr>
+                            <td colspan="3">ETKİN ÇALIŞAN SAYISI (Kiwa Tarafından Hesaplanacaktır)</td>
+                            <td style="width: 10%"> </td>
+                        </tr>
+                        <table border="1">
+                            <tr>
+                                <td colspan="3">FİRMANIZDA VARDİYALI ÇALIŞMA VAR MI?</td>
+                                <td style="width: 15%">EVET</td>
+                                <td style="width: 5%"><input type="checkbox" name="myTextEditBox" value="checked" /> </td>
+                                <td style="width: 15%">HAYIR</td>
+                                <td style="width: 5%"><input type="checkbox" name="myTextEditBox" value="checked" /> </td>
+                            </tr>
+                            <tr>
+                                <td colspan="3">VARDİYALARDA GERÇEKLEŞTİRİLEN SÜREÇLER AYNIDIR</td>
+                                <td style="width: 15%">EVET</td>
+                                <td style="width: 5%"><input type="checkbox" name="myTextEditBox" value="checked" /> </td>
+                                <td style="width: 15%">HAYIR</td>
+                                <td style="width: 5%"><input type="checkbox" name="myTextEditBox" value="checked" /> </td>
+                            </tr>
+                        </table>
+                        <table border="1">
+                            <tr>
+                                <td>1. Vardiya</td>
+                                <td>2. Vardiya</td>
+                                <td>3. Vardiya</td>
+                            </tr>
+                        </table>
+                        <table border="1">
+                            <tr>
+                                <td>Çalışma Saatleri</td>
+                                <td style="width: 15%">{{f.Çalışma_Saatleri}}</td>
+                                <td>Çalışma Saatleri</td>
+                                <td style="width: 10%"></td>
+                                <td>Çalışma Saatleri</td>
+                                <td style="width: 10%"> </td>
+                            </tr>
+                        </table>
+                        <table border="1">
+                            <tr>
+                                <td>Gerçekleştirilen Süreçler</td>
+                                <td>Gerçekleştirilen Süreçler</td>
+                                <td>Gerçekleştirilen Süreçler</td>
+                            </tr>
+                            <tr>
+                                <td style="height:100px;width:35%;">{{f.Gerçekleştirilen_Süreçler}}</td>
+                                <td style="height:100px"></td>
+                                <td style="height:100px"></td>
+                            </tr>
+                        </table>
+                        <table border="1">
+                            <tr>
+                                <td>HİZMET VERDİĞİNİZ SEKTÖRLER, SAĞLAMIŞ OLDUĞUNUZ ÜRÜN/HİZMETLER İLE İLGİLİ ÖRNEKLER</td>
+                            </tr>
+                            <tr>
+                                <td style="height:100px">{{f.HİZMET_VERDİĞİNİZ_SEKTÖRLER_SAĞLAMIŞ_OLDUĞUNUZ_ÜRÜN_HİZMETLER_İLE_İLGİLİ_ÖRNEKLER }}</td>
+                            </tr>
+                            <!--  -->
+                            <tr>
+                                <td>PROSES VE FAALİYETLERİNİZ, İNSAN VE TEKNİK KAYNAKLAR, FONKSİYONLAR (Departmanlarınız)</td>
+                            </tr>
+                            <tr>
+                                <td style="height:100px">{{f.PROSES_VE_FAALİYETLERİNİZ_İNSAN_VE_TEKNİK_KAYNAKLAR_FONKSİYONLAR}}</td>
+                            </tr>
+                            <!--  -->
+                            <tr>
+                                <td>HARİÇ TUTMALAR ve GEREKÇE(LER) (Belgelendirme Kapsamına Alınmayacak Olan Standart Maddeleri)</td>
+                            </tr>
+                            <tr>
+                                <td style="height:100px">{{f.HARİÇ_TUTMALAR_ve_GEREKÇELER}}</td>
+                            </tr>
+                        </table>
+
+                    </table>
+                </table>
+            </table>
+            <br><br><br><br><br><br><br><br><br><br><br>
+            <table border="1">
+                <tr>
+                    <td>YASAL ŞARTLAR (Belgelendirme Talebinizde Yer Alan Faaliyetleriniz İle İlgili Gerekli Yasal Şartlar)</td>
+                </tr>
+                <tr>
+                    <td style="height:100px">{{f.YASAL_ŞARTLAR}}</td>
+                </tr>
+                <!--  -->
+                <tr>
+                    <td>DIŞ KAYNAKLI SÜREÇLER (Üretim/Hizmet Süreçlerinizin İçinde Dış Kaynaklı Süreçleriniz Var İse)</td>
+                </tr>
+                <tr>
+                    <td style="height:100px">{{f.DIŞ_KAYNAKLI_SÜREÇLER}}</td>
+                </tr>
+                <!--  -->
+                <tr>
+                    <td>VARSA MEVCUT ÜRÜN/SİSTEM BELGELERİ</td>
+                </tr>
+                <tr>
+                    <td style="height:100px">{{f.VARSA_MEVCUT_ÜRÜN_SİSTEM_BELGELERİ}}</td>
+                </tr>
+
+
+            </table>
+            <table border="1">
+                <tr>
+                    <td>Lütfen şirketinizin entegre sistemi için uygun olanları işaretleyiniz </td>
+                    <td style="width: 5%">EVET</td>
+                    <td style="width: 5%">HAYIR</td>
+                </tr>
+                <tr>
+                    <td>İşletme stratejisinin ve belgelendirilecek standartlar için planlamanın değerlendirildiği YGG toplantısı</td>
+                    <td style="width: 5%"><input type="checkbox" name="myTextEditBox" value="checked" /></td>
+                    <td style="width: 5%"><input type="checkbox" name="myTextEditBox" value="checked" /></td>
+                </tr>
+                <tr>
+                    <td>İç denetimler bütün ilgili standartlar için entegre olarak gerçekleştirilmiştir.</td>
+                    <td style="width: 5%"><input type="checkbox" name="myTextEditBox" value="checked" /></td>
+                    <td style="width: 5%"><input type="checkbox" name="myTextEditBox" value="checked" /></td>
+                </tr>
+                <tr>
+                    <td>Yönetim politikası ve hedefleri entegre bir yaklaşım mevcuttur.</td>
+                    <td style="width: 5%"><input type="checkbox" name="myTextEditBox" value="checked" /></td>
+                    <td style="width: 5%"><input type="checkbox" name="myTextEditBox" value="checked" /></td>
+                </tr>
+                <tr>
+                    <td>Sistem süreçleri entegre bir yaklaşım söz konusudur.</td>
+                    <td style="width: 5%"><input type="checkbox" name="myTextEditBox" value="checked" /></td>
+                    <td style="width: 5%"><input type="checkbox" name="myTextEditBox" value="checked" /></td>
+                </tr>
+                <tr>
+                    <td>(Profesyonel makuliyet çerçevesi içinde) prosedür ve talimatları da içeren entegre dokümantasyon mevcuttur.</td>
+                    <td style="width: 5%"><input type="checkbox" name="myTextEditBox" value="checked" /></td>
+                    <td style="width: 5%"><input type="checkbox" name="myTextEditBox" value="checked" /></td>
+                </tr>
+                <tr>
+                    <td>İyileştirme mekanizmalarına entegre yaklaşım mevcuttur (düzeltici, ölçüm metotları ve sürekli iyileştirme) </td>
+                    <td style="width: 5%"><input type="checkbox" name="myTextEditBox" value="checked" /></td>
+                    <td style="width: 5%"><input type="checkbox" name="myTextEditBox" value="checked" /></td>
+                </tr>
+                <tr>
+                    <td>Yönetim desteği ve sorumluluklar birleştirilmiş durumdadır.</td>
+                    <td style="width: 5%"><input type="checkbox" name="myTextEditBox" value="checked" /></td>
+                    <td style="width: 5%"><input type="checkbox" name="myTextEditBox" value="checked" /></td>
+                </tr>
+                <tr>
+                    <td>Risk ve fırsat belirleme faaliyetleri entegre olarak gerçekleştirildi</td>
+
+                    <td style="width: 5%"><input type="checkbox" name="myTextEditBox" value="checked" /></td>
+                    <td style="width: 5%"><input type="checkbox" name="myTextEditBox" value="checked" /></td>
+                </tr>
+            </table>
+            <table border="1">
+                <tr>
+                    <td>BELGELENDİRME KAPSAMINIZ (Yapmış Olduğunuz İşi ve Faaliyetleri Açıklayınız)</td>
+                </tr>
+                <tr>
+                    <td style="height:200px">{{f.BELGELENDİRME_KAPSAMINIZ}}</td>
+                </tr>
+
+            </table>
+            
+            <br><br><br><br><br><br><br><br><br><br><br><br><br><br><br><br><br><br><br><br><br><br><br><br><br><br><br><br><br><br>
+            <table>
+                <tr align="right">
+                        <td><img src="{% static 'images/Resim2.jpg' %}"></td>
+                </tr>
+           </table>
+            <td>Birden fazla tesis olması durumunda çoklu saha prosedürü uygulanacaktır. </td>
+            <br>
+            <td>Lütfen aşağıdaki bilgileri doldurunuz.5’ten daha fazla sahanız varsa lütfen bu sayfayı kopyalayarak kullanınız </td>
+
+            <table border="1">
+                <tr>
+                <td colspan="2"></td>
+                    <td>Tesis #2</td>
+                    <td>Tesis #3</td>
+                    <td>Tesis #4</td>
+                    <td>Tesis $5</td>
+                </tr>
+                <tr>
+                    <td colspan="2">Tesis / Proje Adı</td>
+                    <td style="height:100px"></td>
+                    <td style="height:100px"></td>
+                    <td style="height:100px"></td>
+                    <td style="height:100px"></td>
+                </tr>
+                <tr>
+                    <td colspan="2">Merkezden Uzaklık</td>
+                    <td style="height:50px"></td>
+                    <td style="height:50px"></td>
+                    <td style="height:50px"></td>
+                    <td style="height:50px"></td>
+                </tr>
+                <tr>
+                    <td colspan="2">Adres</td>
+                    <td style="height:100px"></td>
+                    <td style="height:100px"></td>
+                    <td style="height:100px"></td>
+                    <td style="height:100px"></td>
+                </tr>
+        
+                <tr>
+                    <td rowspan="4" class="rotate" style="padding: 45px 10px 5px 1px;">Çalışan <br> Sayısı</td>
+                    <td> Yönetim/İdari </td>
+                    <td style="width: 15%;"> </td>
+                    <td style="width: 15%;"> </td>
+                    <td style="width: 15%;"> </td>
+                    <td style="width: 15%;"> </td>
+                </tr>
+                <tr>
+                    <td>Benzer/Tekrarlı </td>
+                    <td style="width: 15%;"> </td>
+                    <td style="width: 15%;"> </td>
+                    <td style="width: 15%;"> </td>
+                    <td style="width: 15%;"> </td>
+                </tr>
+                <tr>
+                    <td>Geçici/Vasıfsız</td>
+                    <td style="width: 15%;"> </td>
+                    <td style="width: 15%;"> </td>
+                    <td style="width: 15%;"> </td>
+                    <td style="width: 15%;"> </td>
+                </tr>
+                <tr>
+                    <td> Toplam </td>
+                    <td style="width: 15%;"> </td>
+                    <td style="width: 15%;"> </td>
+                    <td style="width: 15%;"> </td>
+                    <td style="width: 15%;"> </td>
+                </tr>
+            
+                <tr>
+                    <td colspan="2">Taşeron Firmalar ve Yaptıkları İşler</td>
+                    <td style="height:100px"></td>
+                    <td style="height:100px"></td>
+                    <td style="height:100px"></td>
+                    <td style="height:100px"></td>
+                </tr>
+                <tr>
+                     <td colspan="2">Bu Tesiste Yapılan İş, Faaliyet Kapsamı</td>
+                     <td style="height:100px"></td>
+                     <td style="height:100px"></td>
+                     <td style="height:100px"></td>
+                     <td style="height:100px"></td>
+                </tr>
+                <tr>
+                    <td colspan="2">Bu Tesisin Sorumlusu ve İrtibat Bilgileri</td>
+                    <td style="height:100px"></td>
+                    <td style="height:100px"></td>
+                    <td style="height:100px"></td>
+                    <td style="height:100px"></td>
+                </tr>
+
+                <tr>
+                    <td colspan="2">Vardiya Bilgileri</td>
+                    <td style="height:50px"></td>
+                    <td style="height:50px"></td>
+                    <td style="height:50px"></td>
+                    <td style="height:50px"></td>
+                </tr>
+            </table>
+            <table border="1">
+                    <td colspan="3">TALEP ETTİĞİNİZ DENETİM TARİHİ</td>
+                    <td style="width: 270px;"> </td>
+            </table>
+            <table border="1">
+
+                <tr>
+                        <td >Kiwa'dan Nasıl Haberdar Oldunuz?</td>
+                        <td style="width: 35%;">Danışmanlık Hzmt. Aldınız mı? </td>
+                        <td style="width: 35%;">{{f.Danışmanlık_Hzmt_Aldınız_mı}}</td>
+                    </tr>
+</table>
+<table border="1">
+                    <tr>
+                       <td rowspan="2">{{f.Kiwadan_Nasıl_Haberdar_Oldunuz}}</td>
+                       <td style="width: 35%;"> Danışman Firma Adı </td>
+                       <td style="width: 35%;"> </td>
+                    </tr>
+                    <tr>
+
+                        <td style="width: 35%;"> Danışman Adı ve Soyadı </td>
+                        <td style="width: 35%;"> </td>
+                    </tr>
+</table>
+            <table border="1">
+                    <tr>
+                            <td>İşbu Bilgi Formu ile birlikte, Kiwa Belgelendirme Hizmetleri Anonim Şirketi ile paylaşmakta olduğumuz ve kişisel veri nitelikli bilgilerin, şirketler arasındaki sözleşmesel ilişkinin kurulabilmesi, bu süreçte her iki şirketin ilgili çalışanlarının irtibat halinde kalabilmesi, teklif sunulması ve sözleşme aşamasının yürütülebilmesi, sözleşmenin ifası ve ileride yeni iş imkanları olması halinde bilgilendirme amaçları ile Kiwa Belgelendirme Hizmetleri Anonim Şirketi nezdinde, muhafazasına, kullanılmasına muvafakat ettiğimizi bildiririz.</td>
+                    </tr>
+                    <tr>
+                            <td>Yukarıda vermiş olduğum tüm bilgilerin doğru ve eksiksiz olduğunu beyan ederim. Yukarıda yer alan bilgilerin eksik ya da yanlış olduğunun tespiti halinde herhangi bir hak talep etmeksizin denetim sözleşmesinin feshi ve varsa ilgili belgenin iptalini peşinen kabul ediyorum.</td>
+                    </tr>
+            </table>
+            <table border="1">
+                    <tr>
+                        <td style="height: 90px;width: 190px;">Formu Dolduran</td>
+                        <td style="width: 200px;">{{f.Formu_Dolduran}}</td>
+                        <td style="width: 90px;">Tarih</td>
+                        <td style="width: 160px;">{{f.Tarih}}</td>
+                        <td style="width: 80px;"> İmza/Kaşe </td>
+                        <td> </td>
+                    </tr>
+            </table>
+        </table>
+        {% endfor %}
+
+    </div>
+</div>
+
+
+{% endblock %}

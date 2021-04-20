@@ -1,0 +1,42 @@
+{%  extends 'accounts/main.html' %}
+
+{% block content %}
+
+		<br>
+
+		<div class="row">
+			<div class="col-md">
+				<div class="card card-body">
+					<h5>Firmalar</h5>
+				</div>
+				<div class="card card-body">
+					<table class="table">
+						<tr>
+                            <th>Company Name</th>
+                            <th>Suspension Date</th>
+                          
+                            <th>Askı Yazısı</th>
+                            
+						</tr>
+						
+						{% for s in suspension %}
+								<tr>
+									{% if s.Suspension_Date != value %}
+
+											<td>{{s.Company_Name}}</td>
+											<td>{{s.Suspension_Date}}</td>
+											<td><a class="btn btn-sm btn-info" href="{% url 'suspension_order' s.id %}">Askı Yazısı</a></td>
+										
+									{% endif %}	
+								
+								</tr>
+						{% endfor %}
+						
+					</table>
+				</div>
+			</div>
+			
+		</div>
+
+{% endblock content %}
+

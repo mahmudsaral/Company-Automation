@@ -1,0 +1,36 @@
+{%  extends 'accounts/main.html' %}
+
+{% block content %}
+
+		<br>
+
+		<div class="row">
+			<div class="col-md">
+				<div class="card card-body">
+					<h5>Firmalar</h5>
+				</div>
+				<div class="card card-body">
+					<table class="table">
+						<tr>
+                            <th>Company Name</th>
+                            <th>Withdrawal Date</th>
+						</tr>
+						
+						{% for w in withdrawal %}
+								<tr>
+									{% if w.Withdrawal_Date != value %}
+											<td>{{w.Company_Name}}</td>
+											<td>{{w.Withdrawal_Date}}</td>										
+									{% endif %}	
+								
+								</tr>
+						{% endfor %}
+						
+					</table>
+				</div>
+			</div>
+			
+		</div>
+
+{% endblock content %}
+

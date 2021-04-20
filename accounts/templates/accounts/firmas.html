@@ -1,0 +1,69 @@
+{%  extends 'accounts/main.html' %}
+
+{% block content %}
+
+		<br>
+
+		<div class="row">
+			<div class="col-md">
+				<div class="card card-body">
+					<h5>Firmalar</h5>
+				</div>
+				<div class="card card-body">
+					<table class="table">
+						<tr>
+							<th>Cert No</th>
+							<th>Company Name</th>
+							<th>Standard</th>
+							<th>CA Date</th>
+							<th>SA1</th>
+							<th>SA2</th>
+							<th>ReReg</th>
+							<th>Suspension Date</th>
+							<th>Withdrawal Date</th>
+							<th>Adres</th>
+							<th>Yetkili_Kisi</th>
+							<th>Scope</th>
+							<th>Phone</th>
+							<th>Fax</th>
+							<th>Email</th>
+							<th>Ea</th>
+							<th>nace</th>
+							<th>Initial Cert Date</th>
+							<th>Cert Date</th>
+							<th>Belge Bitiş Tarihi</th>
+
+						</tr>
+						{% for i in firmas %}
+							<tr>
+								<td>{{i.Certno}}</td>
+								<td>{{i.Company_Name}}</td>
+								<td>{{i.Standard}}</td>
+								<td>{{i.CA_Date}}</td>
+								<td>{{i.SA1}}</td>
+								<td>{{i.SA2}}</td>
+								<td>{{i.ReReg}}</td>
+								<td>{{i.Suspension_Date}}</td>
+								<td>{{i.Withdrawal_Date}}</td>
+								<td>{{i.Address}}</td>
+								<td>{{i.Yetkili_Kisi}}</td>
+								<td>{{i.Scope}}</td>
+								<td>{{i.Phone}}</td>
+								<td>{{i.Fax}}</td>
+								<td>{{i.email}}</td>
+								<td>{{i.ea}}</td>
+								<td>{{i.nace}}</td>
+								<td>{{i.Initial_Cert_Date}}</td>
+								<td>{{i.Cert_Date}}</td>
+								<td>{{i.belge_bitiş_tarihi}}</td>
+								
+							</tr>
+						{% endfor %}
+						
+					</table>
+				</div>
+			</div>
+			
+		</div>
+
+{% endblock content %}
